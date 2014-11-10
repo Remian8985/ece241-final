@@ -24,6 +24,8 @@
 *.qws
 *.cmp
 *.eqn
+*.flock
+*.xml
 
 
 *.bak
