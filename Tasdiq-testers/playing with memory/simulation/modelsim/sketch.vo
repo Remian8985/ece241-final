@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
 
-// DATE "11/09/2014 22:42:34"
+// DATE "11/10/2014 03:32:32"
 
 // 
 // Device: Altera EP2C35F672C6 Package FBGA672
@@ -488,12 +488,8 @@ wire \x2|hex_decoder~3_combout ;
 wire \x2|hex_decoder~4_combout ;
 wire \x2|hex_decoder~5_combout ;
 wire \x2|hex_decoder~6_combout ;
-wire [17:0] \SW~combout ;
-wire [7:0] \VGA|controller|x ;
 wire [3:0] \KEY~combout ;
-wire [9:0] \VGA|controller|xCounter ;
-wire [6:0] \VGA|controller|y ;
-wire [9:0] \VGA|controller|yCounter ;
+wire [17:0] \SW~combout ;
 wire [3:0] \VGA|VideoMemory|auto_generated|altsyncram1|decode4|w_anode282w ;
 wire [3:0] \VGA|VideoMemory|auto_generated|altsyncram1|decode4|w_anode272w ;
 wire [3:0] \VGA|VideoMemory|auto_generated|altsyncram1|decode4|w_anode262w ;
@@ -509,6 +505,10 @@ wire [3:0] \VGA|asdf_insta|altsyncram_component|auto_generated|deep_decode|w_ano
 wire [3:0] \VGA|asdf_insta|altsyncram_component|auto_generated|deep_decode|w_anode252w ;
 wire [2:0] \VGA|VideoMemory|auto_generated|altsyncram1|out_address_reg_a ;
 wire [2:0] \VGA|VideoMemory|auto_generated|altsyncram1|address_reg_a ;
+wire [9:0] \VGA|controller|yCounter ;
+wire [6:0] \VGA|controller|y ;
+wire [9:0] \VGA|controller|xCounter ;
+wire [7:0] \VGA|controller|x ;
 
 wire [2:0] \VGA|mypll|altpll_component|pll_CLK_bus ;
 wire [0:0] \VGA|asdf_insta|altsyncram_component|auto_generated|ram_block1a14_PORTADATAOUT_bus ;

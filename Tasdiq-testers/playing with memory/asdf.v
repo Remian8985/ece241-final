@@ -100,7 +100,9 @@ module asdf (
 		altsyncram_component.width_a = 3,
 		altsyncram_component.width_byteena_a = 1;
 
-
+// COMPARISION WITH LAB7 KIT: 
+// around line 226 of vga_adapter.v
+// instantiation of altsyncram
 endmodule
 
 // ============================================================
