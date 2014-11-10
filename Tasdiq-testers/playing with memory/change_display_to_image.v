@@ -8,22 +8,22 @@
 // FOR A CHANGE IN RESOLUTION :(
 
 
-module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_in, data_out);
-	parameter p = 4;	//	opcode size 
-					// number of images. 0th bit for copying the buffer to refresh the screen
+module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, date_in, data_out);
+	parameter p = 2;	//	opcode size -1
 	parameter m = 2;	// colour size -1
-	parameter n = 15; // ?	// number of bits for memory -1	
+	parameter n = 15; // ?	// number of bits for memory -1
+	parameter p = 4;	// number of images. 0th bit for copying the buffer to refresh the screen 
 
 
 	input clk_in, clk_out, wren;	// 50MHz and 25MHz ??
-	input [p:0] opcode;
+	opcode [p:0] opcode;
 	input [n:0] mem_address;	// MUST COME FROM THE COUNTER
 	input [m:0] data_in;		// 3 bit colour		... coming from the BUFFER
 	output reg  [m:0] data_out;		// 3 bit colour 
 
 	//reg wren_sig, wren_sig1, wren_sig2, wren_sig3, wren_sig4;
 
-	reg [p:0] wren_sig;
+
 	wire [m:0] data_out1, data_out2, data_out3, data_out4;	
 
 
@@ -76,7 +76,7 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 	//	..
 	//	..
 			default: 
-				data_out <= 2'd0;	// m = 2
+				data_out <= m'd0;
 		endcase 
 	end
 

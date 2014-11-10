@@ -14,7 +14,11 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 	parameter m = 2;	// colour size -1
 	parameter n = 15; // ?	// number of bits for memory -1	
 
+	parameter vcc = 1;
+	parameter gnd = 0;
 
+
+	// 	  clock1, clock2 	in top level
 	input clk_in, clk_out, wren;	// 50MHz and 25MHz ??
 	input [p:0] opcode;
 	input [n:0] mem_address;	// MUST COME FROM THE COUNTER
@@ -29,7 +33,10 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 
 // Assuming all the mif files are valid 
 // when not writing, we're reading. 
-	image1	go_image1(
+// when passing values to write buffer, outclock MUST BE 50MHz
+// other wise MUST BE 25MHz
+// or whatever
+	target0	go_target0(
 		.address ( mem_address ),
 		.data ( data_in ),
 		.inclock ( clk_in ),
@@ -38,7 +45,7 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 		.q ( data_out1 )
 		);
 
-	image2	go_image2(
+	target1	go_target1(
 		.address ( mem_address ),
 		.data ( data_in ),
 		.inclock ( clk_in ),
@@ -46,6 +53,8 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 		.wren ( wren_sig[2] ),
 		.q ( data_out2 )
 		);
+
+// instantiate clipboard 
 
 // and so on
 
