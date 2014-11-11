@@ -5,6 +5,8 @@ module sketch
 		CLOCK_50,						//	On Board 50 MHz
 		KEY,							//	Push Button[3:0]
 		SW,								//	DPDT Switch[17:0]
+		LEDR,
+		LEDG,
 		VGA_CLK,   						//	VGA Clock
 		VGA_HS,							//	VGA H_SYNC
 		VGA_VS,							//	VGA V_SYNC
@@ -25,12 +27,15 @@ module sketch
 	output			VGA_SYNC;				//	VGA SYNC
 	output	[9:0]	VGA_R;   				//	VGA Red[9:0]
 	output	[9:0]	VGA_G;	 				//	VGA Green[9:0]
-	output	[9:0]	VGA_B;   				//	VGA Blue[9:0]
+	output	[9:0]	VGA_B;   				//	VGA Blue[9:0]\
+	output	[17:0]	LEDR;
+	output	[7:0]	LEDG;
 	
 	wire resetn;
-	assign resetn = SW[0];
+	assign resetn = SW[17];		// 	//	//
+	assign LEDG[4:0] = SW[4:0];
 	wire [4:0] opcode;
-	assign opcode = SW[5:1];
+	assign opcode = SW[4:0];
 	
 	// Create the color, x, y and writeEn wires that are inputs to the controller.
 
@@ -43,9 +48,10 @@ module sketch
 	// Define the number of colours as well as the initial background
 	// image file (.MIF) for the controller.
 	vga_adapter VGA(
+			.opcode(opcode),
 			.resetn(resetn),
 			.clock(CLOCK_50),
-			.colour(color),
+//			.colour(color),
 			.x(x),
 			.y(y),
 			.plot(writeEn),
@@ -62,10 +68,12 @@ module sketch
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 		defparam VGA.BACKGROUND_IMAGE = "display.mif";
+//		defparam VGA.RESOLUTION = "160x120";
+//		defparam VGA.RESOLUTION = "320x240";
 			
 	// Put your code here. Your code should produce signals x,y,color and writeEn
 	// for the VGA controller, in addition to any other functionality your design may require.
 	
 	
 	
-endmodule
+endmodule 

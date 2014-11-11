@@ -76,9 +76,10 @@
  */
 
 module vga_adapter(
+			opcode, 
 			resetn,
 			clock,
-			colour,
+//			colour,
 			x, y, plot,
 			/* Signals for the DAC to drive the monitor. */
 			VGA_R,
@@ -88,7 +89,8 @@ module vga_adapter(
 			VGA_VS,
 			VGA_BLANK,
 			VGA_SYNC,
-			VGA_CLK);
+			VGA_CLK
+			);
  
 	parameter BITS_PER_COLOUR_CHANNEL = 1;
 	/* The number of bits per colour channel used to represent the colour of each pixel. A value
@@ -125,7 +127,8 @@ module vga_adapter(
 	/* The colour input can be either 1 bit or 3*BITS_PER_COLOUR_CHANNEL bits wide, depending on
 	 * the setting of the MONOCHROME parameter.
 	 */
-	input [((MONOCHROME == "TRUE") ? (0) : (BITS_PER_COLOUR_CHANNEL*3-1)):0] colour;
+//	input [((MONOCHROME == "TRUE") ? (0) : (BITS_PER_COLOUR_CHANNEL*3-1)):0] colour;
+	wire [((MONOCHROME == "TRUE") ? (0) : (BITS_PER_COLOUR_CHANNEL*3-1)):0] colour;
 	
 	/* Specify the number of bits required to represent an (X,Y) coordinate on the screen for
 	 * a given resolution.
@@ -137,6 +140,7 @@ module vga_adapter(
 	 * a new colour, defined by the value of the colour input.
 	 */
 	input plot;
+	input [4:0] opcode;
 	
 	/* These outputs drive the VGA display. The VGA_CLK is also used to clock the FSM responsible for
 	 * controlling the data transferred to the DAC driving the monitor. */
@@ -167,6 +171,7 @@ module vga_adapter(
 	/* Pixel colour read by the VGA controller */
 	
 	wire [((RESOLUTION == "320x240") ? (16) : (14)):0] user_to_video_memory_addr;
+	wire [((RESOLUTION == "320x240") ? (16) : (14)):0] datapath_mem_address;
 	/* This bus specifies the address in memory the user must write
 	 * data to in order for the pixel intended to appear at location (X,Y) to be displayed
 	 * at the correct location on the screen.
@@ -195,20 +200,45 @@ module vga_adapter(
 
 	assign valid_160x120 = (({1'b0, x} >= 0) & ({1'b0, x} < 160) & ({1'b0, y} >= 0) & ({1'b0, y} < 120)) & (RESOLUTION == "160x120");
 	assign valid_320x240 = (({1'b0, x} >= 0) & ({1'b0, x} < 320) & ({1'b0, y} >= 0) & ({1'b0, y} < 240)) & (RESOLUTION == "320x240");
-	assign writeEn = (plot) & (valid_160x120 | valid_320x240);
+	assign writeEn = plot & (valid_160x120 | valid_320x240);
+//	assign writeEn = (opcode == 5'b00000);
 	/* Allow the user to plot a pixel if and only if the (X,Y) coordinates supplied are in a valid range. */
+	assign datapath_mem_address = controller_to_video_memory_addr;
+	wire data_wren, loose;
+	assign data_wren = opcode[4]; 
+	change_display_to_image datapath(
+		.wren(gnd), 
+		.opcode(opcode[3:0]),
+		.clk_in(clock), 
+		.clk_out(clock_25), 
+		.mem_address(datapath_mem_address), 
+		.data_in(to_ctrl_colour), 	
+		.data_out(colour),			// goes to buffer
+		.wren_out(loose)
+		);
+	
+	
+
+	// TO DO:
+	// MAKE data_wren COME THROUGH A FLIPFLOP
+	// TO MAKE SURE SCREEN RENDERING IS COMPLETE
+	// BEFORE WRITING STOPS/STARTS
+	
+	
 	
 	/* Create video memory. */
+	// the "BUFFER" intermediary between computed image
+	// and display image
 	altsyncram	VideoMemory (
-				.wren_a (writeEn),
+				.wren_a (data_wren),
 				.wren_b (gnd),
 				.clock0 (clock), // write clock
 				.clock1 (clock_25), // read clock
 				.clocken0 (vcc), // write enable clock
 				.clocken1 (vcc), // read enable clock				
-				.address_a (user_to_video_memory_addr),
+				.address_a (datapath_mem_address),
 				.address_b (controller_to_video_memory_addr),
-				.data_a (colour), // data in
+				.data_a (colour), 		// data in
 				.q_b (to_ctrl_colour)	// data out
 				);
 	defparam
@@ -237,10 +267,10 @@ module vga_adapter(
 	 */
 	
 	vga_controller controller(
-			.vga_clock(clock_25),
-			.resetn(resetn),
-			.pixel_colour(to_ctrl_colour),
-			.memory_address(controller_to_video_memory_addr), 
+			.vga_clock(clock_25),								// input 
+			.resetn(resetn),									// input
+			.pixel_colour(to_ctrl_colour),						// input
+			.memory_address(controller_to_video_memory_addr), 	// output 
 			.VGA_R(VGA_R),
 			.VGA_G(VGA_G),
 			.VGA_B(VGA_B),

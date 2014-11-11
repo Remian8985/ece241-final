@@ -8,8 +8,8 @@
 // FOR A CHANGE IN RESOLUTION :(
 
 
-module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_in, data_out);
-	parameter p = 4;	//	opcode size 
+module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_in, data_out, wren_out);
+	parameter p = 3;	//	opcode size 
 					// number of images. 0th bit for copying the buffer to refresh the screen
 	parameter m = 2;	// colour size -1
 	parameter n = 15; // ?	// number of bits for memory -1	
@@ -24,6 +24,7 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 	input [n:0] mem_address;	// MUST COME FROM THE COUNTER
 	input [m:0] data_in;		// 3 bit colour		... coming from the BUFFER
 	output reg  [m:0] data_out;		// 3 bit colour 
+	output reg wren_out;
 
 	//reg wren_sig, wren_sig1, wren_sig2, wren_sig3, wren_sig4;
 
@@ -41,7 +42,7 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 		.data ( data_in ),
 		.inclock ( clk_in ),
 		.outclock ( clk_out ),
-		.wren ( wren_sig[1] ),
+		.wren ( wren_sig[1] ),	// wren_sig is defined below at always blcok
 		.q ( data_out1 )
 		);
 
@@ -53,40 +54,57 @@ module change_display_to_image(wren, opcode, clk_in, clk_out, mem_address, data_
 		.wren ( wren_sig[2] ),
 		.q ( data_out2 )
 		);
+/*
+		target2	go_target2(
+		.address ( mem_address ),
+		.data ( data_in ),
+		.inclock ( clk_in ),
+		.outclock ( clk_out ),
+		.wren ( wren_sig[2] ),
+		.q ( data_out2 )
+		);
+*/
+// and so on
 
 // instantiate clipboard 
 
-// and so on
-
 ////////////
 // mux to select what image (or not) to select
-	always @(posedge clk_in) begin
+	always @(posedge clk_out) begin
 		if(wren)
 			wren_sig <= opcode;
+		else 
+			wren_sig <= 4'b0; // p =4 = opcode size
 
 		case (opcode)
-			3'b000: begin 
+			4'b0000: begin 
 					// select no image 
 					// read from buffer 
-					data_out <= data_in;
+					//data_out <= data_in;
+					//wren_out <= 0;
 				end 
-			3'b001: begin 
+			4'b0001: begin 
+					wren_out <= 1;
 					data_out <= data_out1;
 
 				end 			
-			3'b010: begin 
+			4'b0010: begin 
+					wren_out <= 1;
 					data_out <= data_out2;
 				
 				end 
-			3'b011: begin 
+			4'b0100: begin 
+					wren_out <= 1;
 					data_out <= data_out3;
 				
 				end 
 	//	..
 	//	..
 			default: 
-				data_out <= 2'd0;	// m = 2
+				data_out <= 3'b111;	// m = 2
+//				data_out <= data_in;	// m = 2
 		endcase 
+//		wren_sig <= 5'b0;
 	end
 
 
