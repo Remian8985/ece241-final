@@ -46,13 +46,15 @@
 */testbench/**
 */*_sim/**
 */incremental_db/**
+*/db/**
+*/timing/**
 
 # ignore Quartus II generated folders
-# Let's keep these for now, I wanna make sure nothing useful gets ignored first. 
-#**/db/
+
+**/db/**
 
 
-#**/timing/
+**/timing/**
 
 
 
