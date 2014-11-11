@@ -36,16 +36,16 @@
 *.sdc
 *.tcl
 
-**/simulation/
-**/testbench/
-**/*_sim/
-**/incremental_db/
+**/simulation/**
+**/testbench/**
+**/*_sim/**
+**/incremental_db/**
 
 
-*/simulation/
-*/testbench/
-*/*_sim/
-*/incremental_db/
+*/simulation/**
+*/testbench/**
+*/*_sim/**
+*/incremental_db/**
 
 # ignore Quartus II generated folders
 # Let's keep these for now, I wanna make sure nothing useful gets ignored first. 
