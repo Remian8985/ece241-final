@@ -1,0 +1,36 @@
+module oneBit_mem_rader(clk, reset, outs );
+	parameter m = 20;
+
+	input clk, reset; 
+	output reg outs, done ;
+
+	wire gnd, oneBit_outs; 
+	reg [15:0] sub_group;
+	reg [m:0] counter; 
+
+
+	assign gnd = 0;
+	test1	test1_inst (
+		.address ( address_sig ),
+		.clock ( clk ),
+		.data ( data_sig ),	// DON'T NEED 
+		.wren ( gnd ),
+		.q ( oneBit_outs )
+		);
+
+
+	always @(posedge clk) begin
+		if (reset)
+			counter <= 6'd0;
+		else 
+			counter <= counter + 1; 
+		if (counter < 6'd15) begin 
+			sub_group[15:1] <= sub_group[14:1];
+			sub_group[0] <= oneBit_outs;
+			done <= 0;
+		end 
+		else begin 
+			done <= 1;
+		end 
+	end
+endmodule 

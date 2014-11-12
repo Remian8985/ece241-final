@@ -9,7 +9,8 @@
 module vga_controller(	vga_clock, resetn, pixel_colour, memory_address, 
 		VGA_R, VGA_G, VGA_B,
 		VGA_HS, VGA_VS, VGA_BLANK,
-		VGA_SYNC, VGA_CLK);
+		VGA_SYNC, VGA_CLK,
+		sync_done);
 	
 	/* Screen resolution and colour depth parameters. */
 	
@@ -63,6 +64,7 @@ module vga_controller(	vga_clock, resetn, pixel_colour, memory_address,
 	output reg VGA_VS;
 	output reg VGA_BLANK;
 	output VGA_SYNC, VGA_CLK;
+	output sync_done;
 	
 	/*****************************************************************************/
 	/* Local Signals.                                                            */
@@ -75,6 +77,7 @@ module vga_controller(	vga_clock, resetn, pixel_colour, memory_address,
 	wire xCounter_clear;
 	wire yCounter_clear;
 	wire vcc;
+	assign sync_done = yCounter_clear;
 	
 	reg [((RESOLUTION == "320x240") ? (8) : (7)):0] x; 
 	reg [((RESOLUTION == "320x240") ? (7) : (6)):0] y;	
