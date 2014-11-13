@@ -1,18 +1,18 @@
-module Master_counter(clk, enable, reset);
+module Master_counter(clk, enable, resetn, memAddress);
 	parameter n = 15;
 
-	input clk, enable, reset;
+	input clk, enable, resetn;
 
-	output reg	[n:0]	mem_address;			// counter for the whole memory array
+	output reg	[n:0]	memAddress;			// counter for the whole memory array
 
 	always @(posedge clk) begin
-		if (reset) 
-			mem_address <= 16'd0
+		if (!reset) 
+			memAddress <= 16'd0
 		else if(enable) begin 
-			if (mem_address < 16'd57600)
-				mem_address <= mem_address + 1;
+			if (memAddress < 16'd57600)
+				memAddress <= memAddress + 1;
 			else 
-				mem_address <= 16'd0
+				memAddress <= 16'd0
 		end  
 	end
 endmodule 

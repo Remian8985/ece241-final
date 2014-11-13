@@ -7,7 +7,7 @@
 
 
 module Grouper(clk, enable, resetn, stream, readyToBeLoaded, loaded, dataOutput);
-	parameter n = 4; 
+	parameter sizeOfCounter = 4; 
 
 	// ACTIVE LOW RESET
 	input clk, enable, resetn, stream;		// from the left side 
@@ -21,13 +21,17 @@ module Grouper(clk, enable, resetn, stream, readyToBeLoaded, loaded, dataOutput)
 	output reg [15:0] 	dataOutput;			// the 16bit array to output 
 											// comes from the intermediary subGroup
 
-	reg	[n:0]	counter; 					// counts
+	reg	[sizeOfCounter-1:0]	counter; 					// counts
 	reg [15:0] 	subGroup;					// storage for shifting bits
 											// gets relayed to output at 16th clock edge
 
 
 //	Count restarts only when top level is ready for output AND the output is ready here
 //  restarting would make loaded = 0
+// PITFALL happens if: loaded = 1, submatrix takes in and still keeps readyToBeLoaded =1
+// 						instead of turning it off and compute stuff
+// RESOLVED
+//
 	wire restartCount;	 
 	assign restartCount = readyToBeLoaded & loaded; 
 
@@ -39,7 +43,7 @@ module Grouper(clk, enable, resetn, stream, readyToBeLoaded, loaded, dataOutput)
 		subGroup <= 16'b0;
 		loaded <= 0;
 	end 
-	
+
 	else if(enable) begin 
 			if (counter < 5'd16)begin 
 				subGroup[15:1] <= subGroup[14:0];
