@@ -6,9 +6,10 @@ module oneBit_mem_rader(clk, reset, done, sub_group );
 									// ready to take in another 16-bit group. 
 
 	output reg done ;				// signals the top level to take in 16-bit group
+	output reg [15:0] send_group;	
 
 	wire gnd, oneBit_outs; 
-	output reg [15:0] sub_group;	// the 16 bit group				
+	reg [15:0] sub_group;	// the 16 bit group				
 	reg [m:0] counter1; 			// counts up to 15/16
 									// counter for the subgroup
 
@@ -32,7 +33,7 @@ module oneBit_mem_rader(clk, reset, done, sub_group );
 		end
 		else if(counter2 > 16'd57600) begin 	// resets all the count when traversing is done
 			counter1 <= 6'd0; 					
-			counter2 <= 16'd0;
+			counter2 <= 16'd0;		// 
 			done <= 0;
 		end 
 
@@ -45,6 +46,7 @@ module oneBit_mem_rader(clk, reset, done, sub_group );
 		end 
 		else begin 
 			done <= 1;
+			send_group <= sub_group;
 		end 
 	end
 endmodule 
