@@ -29,12 +29,6 @@ module SubmatrixCreator (clk, enable, resetn, readyToBeLoaded, dataOut, loaded);
 		.dataOutput(dataOut)				// 16 bit output, grouped together
 		);
 
-	OriginalImage	OriginalImage_inst (
-	.address ( memAddress ),
-	.clock ( clk ),
-	.q ( bitStream )
-	);
-
 
 
 	// memory initialization needed 

@@ -6,13 +6,13 @@ module Master_counter(clk, enable, resetn, memAddress);
 	output reg	[n:0]	memAddress;			// counter for the whole memory array
 
 	always @(posedge clk) begin
-		if (!resetn) 
-			memAddress <= 16'd0;
+		if (!reset) 
+			memAddress <= 16'd0
 		else if(enable) begin 
 			if (memAddress < 16'd57600)
 				memAddress <= memAddress + 1;
 			else 
-				memAddress <= 16'd0;
+				memAddress <= 16'd0
 		end  
 	end
 endmodule 
