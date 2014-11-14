@@ -33,7 +33,7 @@ always@(posedge clock)
 begin
 	if (!resetN)
 	begin
-		groupedElements <= 0; //Reset everything to zero
+//		groupedElements <= 0; //Reset everything to zero
 		internalRegister <= 0;
 		loaded <= 0;
 	end
@@ -41,6 +41,7 @@ begin
 	begin
 		if (elementsRead < (groupSize -1 )) //If entire internal register hasn't been filled, add the inputted element to the register
 		begin
+	//		internalRegister [groupSize - 1:1] <= groupedElements;
 			internalRegister [groupSize - 1:1] <= internalRegister [groupSize -2:0];
 			internalRegister [0] <= element;
 			loaded <= 0;
