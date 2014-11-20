@@ -62,8 +62,10 @@ reg delayedEnable; //Used to delay submatrixGrouper's enable by one clock edge s
 
 always@(posedge clock)
 begin
-
-		delayedEnable <= enable; 
+	if (!resetN)
+		delayedEnable = 0;
+	else 
+		delayedEnable = enable; 
 end
 
 //Groups elements from ROM and outputs the group
@@ -78,3 +80,8 @@ Grouper submatrixGrouper
 );
 
 endmodule
+
+
+//module flipflop(D, Q, clk );
+//	always@(posedge 
+//endmodule 

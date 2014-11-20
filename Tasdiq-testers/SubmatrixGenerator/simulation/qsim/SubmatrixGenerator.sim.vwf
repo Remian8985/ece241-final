@@ -26,7 +26,7 @@ HEADER
 	TIME_UNIT = ns;
 	DATA_OFFSET = 0.0;
 	DATA_DURATION = 1000.0;
-	SIMULATION_TIME = 0.0;
+	SIMULATION_TIME = 1000.0;
 	GRID_PHASE = 0.0;
 	GRID_PERIOD = 40.0;
 	GRID_DUTY_CYCLE = 50;
@@ -612,6 +612,16 @@ SIGNAL("enableDelayTest")
 	PARENT = "";
 }
 
+SIGNAL("enableTest")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("clock")
 {
 	NODE
@@ -634,7 +644,9 @@ TRANSITION_LIST("loaded")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 200.0;
 	}
 }
 
@@ -661,7 +673,7 @@ TRANSITION_LIST("submatrixElements[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -670,7 +682,7 @@ TRANSITION_LIST("submatrixElements[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -679,7 +691,8 @@ TRANSITION_LIST("submatrixElements[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -688,7 +701,8 @@ TRANSITION_LIST("submatrixElements[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -697,7 +711,8 @@ TRANSITION_LIST("submatrixElements[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -706,7 +721,8 @@ TRANSITION_LIST("submatrixElements[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -715,7 +731,7 @@ TRANSITION_LIST("submatrixElements[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -724,7 +740,8 @@ TRANSITION_LIST("submatrixElements[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -733,7 +750,8 @@ TRANSITION_LIST("submatrixElements[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -742,7 +760,8 @@ TRANSITION_LIST("submatrixElements[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -751,7 +770,8 @@ TRANSITION_LIST("submatrixElements[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -760,7 +780,7 @@ TRANSITION_LIST("submatrixElements[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -769,7 +789,8 @@ TRANSITION_LIST("submatrixElements[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -778,7 +799,8 @@ TRANSITION_LIST("submatrixElements[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -787,7 +809,8 @@ TRANSITION_LIST("submatrixElements[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -796,7 +819,8 @@ TRANSITION_LIST("submatrixElements[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -815,7 +839,7 @@ TRANSITION_LIST("addressTest[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -824,7 +848,7 @@ TRANSITION_LIST("addressTest[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -833,7 +857,7 @@ TRANSITION_LIST("addressTest[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -842,7 +866,7 @@ TRANSITION_LIST("addressTest[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -851,7 +875,7 @@ TRANSITION_LIST("addressTest[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -860,7 +884,7 @@ TRANSITION_LIST("addressTest[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -869,7 +893,7 @@ TRANSITION_LIST("addressTest[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -878,7 +902,7 @@ TRANSITION_LIST("addressTest[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -887,7 +911,7 @@ TRANSITION_LIST("addressTest[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -896,7 +920,7 @@ TRANSITION_LIST("addressTest[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -905,7 +929,7 @@ TRANSITION_LIST("addressTest[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -914,7 +938,8 @@ TRANSITION_LIST("addressTest[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 680.0;
+		LEVEL 1 FOR 320.0;
 	}
 }
 
@@ -923,7 +948,9 @@ TRANSITION_LIST("addressTest[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 360.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 320.0;
 	}
 }
 
@@ -932,7 +959,14 @@ TRANSITION_LIST("addressTest[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 200.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 160.0;
+		}
+		LEVEL 1 FOR 160.0;
 	}
 }
 
@@ -941,7 +975,14 @@ TRANSITION_LIST("addressTest[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 5;
+			LEVEL 1 FOR 80.0;
+			LEVEL 0 FOR 80.0;
+		}
+		LEVEL 1 FOR 80.0;
 	}
 }
 
@@ -950,7 +991,14 @@ TRANSITION_LIST("addressTest[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 80.0;
+		NODE
+		{
+			REPEAT = 11;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 40.0;
+		}
+		LEVEL 1 FOR 40.0;
 	}
 }
 
@@ -959,7 +1007,16 @@ TRANSITION_LIST("elementTest")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 160.0;
+		NODE
+		{
+			REPEAT = 3;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 40.0;
+		}
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 120.0;
 	}
 }
 
@@ -968,7 +1025,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -977,7 +1034,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -986,7 +1043,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -995,7 +1052,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[12]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1004,7 +1061,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1013,7 +1070,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1022,7 +1079,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1031,7 +1088,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1040,7 +1097,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1049,7 +1106,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1058,7 +1115,7 @@ TRANSITION_LIST("Counter:addressTraverser|count[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1067,7 +1124,8 @@ TRANSITION_LIST("Counter:addressTraverser|count[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 680.0;
+		LEVEL 1 FOR 320.0;
 	}
 }
 
@@ -1076,7 +1134,9 @@ TRANSITION_LIST("Counter:addressTraverser|count[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 360.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 320.0;
 	}
 }
 
@@ -1085,7 +1145,14 @@ TRANSITION_LIST("Counter:addressTraverser|count[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 200.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 1 FOR 160.0;
+			LEVEL 0 FOR 160.0;
+		}
+		LEVEL 1 FOR 160.0;
 	}
 }
 
@@ -1094,7 +1161,14 @@ TRANSITION_LIST("Counter:addressTraverser|count[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 120.0;
+		NODE
+		{
+			REPEAT = 5;
+			LEVEL 1 FOR 80.0;
+			LEVEL 0 FOR 80.0;
+		}
+		LEVEL 1 FOR 80.0;
 	}
 }
 
@@ -1103,7 +1177,14 @@ TRANSITION_LIST("Counter:addressTraverser|count[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL U FOR 1000.0;
+		LEVEL 0 FOR 80.0;
+		NODE
+		{
+			REPEAT = 11;
+			LEVEL 1 FOR 40.0;
+			LEVEL 0 FOR 40.0;
+		}
+		LEVEL 1 FOR 40.0;
 	}
 }
 
@@ -1112,7 +1193,18 @@ TRANSITION_LIST("enableDelayTest")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 920.0;
+	}
+}
+
+TRANSITION_LIST("enableTest")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 920.0;
 	}
 }
 
@@ -1686,6 +1778,15 @@ DISPLAY_LINE
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 57;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "enableTest";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 58;
 	TREE_LEVEL = 0;
 }
 
