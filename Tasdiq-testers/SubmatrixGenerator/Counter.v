@@ -10,18 +10,17 @@ module Counter (resetN, clock, enable, count);
 	output reg[counterSize-1:0] count;
 
 	always@(posedge clock)
-	begin
+		begin
 		if (!resetN)
 			count <= resetValue;
-
+			
 		else if (enable)
 		begin
 			if (count < countLimit) 
 			count <= count+1;
-			
+				
 			else
-			count <= 0;
+				count <= 0;
+			end	
 		end
-	end
-	
 endmodule

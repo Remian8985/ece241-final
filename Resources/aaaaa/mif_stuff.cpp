@@ -1,3 +1,10 @@
+/*
+ *	Input a column of addresses (integer)
+ *	into cin. 
+ *	This program just outputs all of 
+ *	them multiplied by three.
+ *
+ */
 
 #include <cstdlib> 
 

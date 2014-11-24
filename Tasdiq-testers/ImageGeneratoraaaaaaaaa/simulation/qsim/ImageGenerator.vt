@@ -1,0 +1,1644 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "11/21/2014 15:29:26"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    ImageGenerator
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module ImageGenerator_vlg_sample_tst(
+	CLOCK_50,
+	KEY,
+	SW,
+	clock,
+	encryptedSubmatrixElements,
+	readyToBeProcessed,
+	resetN,
+	userEnable,
+	sampler_tx
+);
+input  CLOCK_50;
+input [0:0] KEY;
+input [17:0] SW;
+input  clock;
+input [15:0] encryptedSubmatrixElements;
+input  readyToBeProcessed;
+input  resetN;
+input  userEnable;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(CLOCK_50 or KEY or SW or clock or encryptedSubmatrixElements or readyToBeProcessed or resetN or userEnable)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module ImageGenerator_vlg_check_tst (
+	LEDG,
+	LEDR,
+	VGA_B,
+	VGA_BLANK,
+	VGA_CLK,
+	VGA_G,
+	VGA_HS,
+	VGA_R,
+	VGA_SYNC,
+	VGA_VS,
+	VGAmemAddress,
+	colour,
+	enable,
+	encryptedImageDisplayed,
+	loaded,
+	pixel,
+	processed,
+	writeEnable,
+	sampler_rx
+);
+input [7:0] LEDG;
+input [17:0] LEDR;
+input [9:0] VGA_B;
+input  VGA_BLANK;
+input  VGA_CLK;
+input [9:0] VGA_G;
+input  VGA_HS;
+input [9:0] VGA_R;
+input  VGA_SYNC;
+input  VGA_VS;
+input [15:0] VGAmemAddress;
+input [2:0] colour;
+input  enable;
+input  encryptedImageDisplayed;
+input  loaded;
+input [2:0] pixel;
+input  processed;
+input  writeEnable;
+input sampler_rx;
+
+reg [7:0] LEDG_expected;
+reg [17:0] LEDR_expected;
+reg [9:0] VGA_B_expected;
+reg  VGA_BLANK_expected;
+reg  VGA_CLK_expected;
+reg [9:0] VGA_G_expected;
+reg  VGA_HS_expected;
+reg [9:0] VGA_R_expected;
+reg  VGA_SYNC_expected;
+reg  VGA_VS_expected;
+reg [15:0] VGAmemAddress_expected;
+reg [2:0] colour_expected;
+reg  enable_expected;
+reg  encryptedImageDisplayed_expected;
+reg  loaded_expected;
+reg [2:0] pixel_expected;
+reg  processed_expected;
+reg  writeEnable_expected;
+
+reg [7:0] LEDG_prev;
+reg [17:0] LEDR_prev;
+reg [9:0] VGA_B_prev;
+reg  VGA_BLANK_prev;
+reg  VGA_CLK_prev;
+reg [9:0] VGA_G_prev;
+reg  VGA_HS_prev;
+reg [9:0] VGA_R_prev;
+reg  VGA_SYNC_prev;
+reg  VGA_VS_prev;
+reg [15:0] VGAmemAddress_prev;
+reg [2:0] colour_prev;
+reg  enable_prev;
+reg  encryptedImageDisplayed_prev;
+reg  loaded_prev;
+reg [2:0] pixel_prev;
+reg  processed_prev;
+reg  writeEnable_prev;
+
+reg [9:0] VGA_B_expected_prev;
+reg  VGA_BLANK_expected_prev;
+reg  VGA_CLK_expected_prev;
+reg [9:0] VGA_G_expected_prev;
+reg  VGA_HS_expected_prev;
+reg [9:0] VGA_R_expected_prev;
+reg  VGA_SYNC_expected_prev;
+reg  VGA_VS_expected_prev;
+reg [15:0] VGAmemAddress_expected_prev;
+reg [2:0] colour_expected_prev;
+reg  enable_expected_prev;
+reg  encryptedImageDisplayed_expected_prev;
+reg  loaded_expected_prev;
+reg [2:0] pixel_expected_prev;
+reg  processed_expected_prev;
+reg  writeEnable_expected_prev;
+
+reg [9:0] last_VGA_B_exp;
+reg  last_VGA_BLANK_exp;
+reg  last_VGA_CLK_exp;
+reg [9:0] last_VGA_G_exp;
+reg  last_VGA_HS_exp;
+reg [9:0] last_VGA_R_exp;
+reg  last_VGA_SYNC_exp;
+reg  last_VGA_VS_exp;
+reg [15:0] last_VGAmemAddress_exp;
+reg [2:0] last_colour_exp;
+reg  last_enable_exp;
+reg  last_encryptedImageDisplayed_exp;
+reg  last_loaded_exp;
+reg [2:0] last_pixel_exp;
+reg  last_processed_exp;
+reg  last_writeEnable_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:18] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 18'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	LEDG_prev = LEDG;
+	LEDR_prev = LEDR;
+	VGA_B_prev = VGA_B;
+	VGA_BLANK_prev = VGA_BLANK;
+	VGA_CLK_prev = VGA_CLK;
+	VGA_G_prev = VGA_G;
+	VGA_HS_prev = VGA_HS;
+	VGA_R_prev = VGA_R;
+	VGA_SYNC_prev = VGA_SYNC;
+	VGA_VS_prev = VGA_VS;
+	VGAmemAddress_prev = VGAmemAddress;
+	colour_prev = colour;
+	enable_prev = enable;
+	encryptedImageDisplayed_prev = encryptedImageDisplayed;
+	loaded_prev = loaded;
+	pixel_prev = pixel;
+	processed_prev = processed;
+	writeEnable_prev = writeEnable;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	VGA_B_expected_prev = VGA_B_expected;
+	VGA_BLANK_expected_prev = VGA_BLANK_expected;
+	VGA_CLK_expected_prev = VGA_CLK_expected;
+	VGA_G_expected_prev = VGA_G_expected;
+	VGA_HS_expected_prev = VGA_HS_expected;
+	VGA_R_expected_prev = VGA_R_expected;
+	VGA_SYNC_expected_prev = VGA_SYNC_expected;
+	VGA_VS_expected_prev = VGA_VS_expected;
+	VGAmemAddress_expected_prev = VGAmemAddress_expected;
+	colour_expected_prev = colour_expected;
+	enable_expected_prev = enable_expected;
+	encryptedImageDisplayed_expected_prev = encryptedImageDisplayed_expected;
+	loaded_expected_prev = loaded_expected;
+	pixel_expected_prev = pixel_expected;
+	processed_expected_prev = processed_expected;
+	writeEnable_expected_prev = writeEnable_expected;
+end
+
+
+// expected VGA_B[ 9 ]
+initial
+begin
+	VGA_B_expected[9] = 1'bX;
+end 
+// expected VGA_B[ 8 ]
+initial
+begin
+	VGA_B_expected[8] = 1'bX;
+end 
+// expected VGA_B[ 7 ]
+initial
+begin
+	VGA_B_expected[7] = 1'bX;
+end 
+// expected VGA_B[ 6 ]
+initial
+begin
+	VGA_B_expected[6] = 1'bX;
+end 
+// expected VGA_B[ 5 ]
+initial
+begin
+	VGA_B_expected[5] = 1'bX;
+end 
+// expected VGA_B[ 4 ]
+initial
+begin
+	VGA_B_expected[4] = 1'bX;
+end 
+// expected VGA_B[ 3 ]
+initial
+begin
+	VGA_B_expected[3] = 1'bX;
+end 
+// expected VGA_B[ 2 ]
+initial
+begin
+	VGA_B_expected[2] = 1'bX;
+end 
+// expected VGA_B[ 1 ]
+initial
+begin
+	VGA_B_expected[1] = 1'bX;
+end 
+// expected VGA_B[ 0 ]
+initial
+begin
+	VGA_B_expected[0] = 1'bX;
+end 
+
+// expected VGA_BLANK
+initial
+begin
+	VGA_BLANK_expected = 1'bX;
+end 
+
+// expected VGA_CLK
+initial
+begin
+	VGA_CLK_expected = 1'bX;
+end 
+// expected VGA_G[ 9 ]
+initial
+begin
+	VGA_G_expected[9] = 1'bX;
+end 
+// expected VGA_G[ 8 ]
+initial
+begin
+	VGA_G_expected[8] = 1'bX;
+end 
+// expected VGA_G[ 7 ]
+initial
+begin
+	VGA_G_expected[7] = 1'bX;
+end 
+// expected VGA_G[ 6 ]
+initial
+begin
+	VGA_G_expected[6] = 1'bX;
+end 
+// expected VGA_G[ 5 ]
+initial
+begin
+	VGA_G_expected[5] = 1'bX;
+end 
+// expected VGA_G[ 4 ]
+initial
+begin
+	VGA_G_expected[4] = 1'bX;
+end 
+// expected VGA_G[ 3 ]
+initial
+begin
+	VGA_G_expected[3] = 1'bX;
+end 
+// expected VGA_G[ 2 ]
+initial
+begin
+	VGA_G_expected[2] = 1'bX;
+end 
+// expected VGA_G[ 1 ]
+initial
+begin
+	VGA_G_expected[1] = 1'bX;
+end 
+// expected VGA_G[ 0 ]
+initial
+begin
+	VGA_G_expected[0] = 1'bX;
+end 
+
+// expected VGA_HS
+initial
+begin
+	VGA_HS_expected = 1'bX;
+end 
+// expected VGA_R[ 9 ]
+initial
+begin
+	VGA_R_expected[9] = 1'bX;
+end 
+// expected VGA_R[ 8 ]
+initial
+begin
+	VGA_R_expected[8] = 1'bX;
+end 
+// expected VGA_R[ 7 ]
+initial
+begin
+	VGA_R_expected[7] = 1'bX;
+end 
+// expected VGA_R[ 6 ]
+initial
+begin
+	VGA_R_expected[6] = 1'bX;
+end 
+// expected VGA_R[ 5 ]
+initial
+begin
+	VGA_R_expected[5] = 1'bX;
+end 
+// expected VGA_R[ 4 ]
+initial
+begin
+	VGA_R_expected[4] = 1'bX;
+end 
+// expected VGA_R[ 3 ]
+initial
+begin
+	VGA_R_expected[3] = 1'bX;
+end 
+// expected VGA_R[ 2 ]
+initial
+begin
+	VGA_R_expected[2] = 1'bX;
+end 
+// expected VGA_R[ 1 ]
+initial
+begin
+	VGA_R_expected[1] = 1'bX;
+end 
+// expected VGA_R[ 0 ]
+initial
+begin
+	VGA_R_expected[0] = 1'bX;
+end 
+
+// expected VGA_SYNC
+initial
+begin
+	VGA_SYNC_expected = 1'bX;
+end 
+
+// expected VGA_VS
+initial
+begin
+	VGA_VS_expected = 1'bX;
+end 
+// expected VGAmemAddress[ 15 ]
+initial
+begin
+	VGAmemAddress_expected[15] = 1'bX;
+end 
+// expected VGAmemAddress[ 14 ]
+initial
+begin
+	VGAmemAddress_expected[14] = 1'bX;
+end 
+// expected VGAmemAddress[ 13 ]
+initial
+begin
+	VGAmemAddress_expected[13] = 1'bX;
+end 
+// expected VGAmemAddress[ 12 ]
+initial
+begin
+	VGAmemAddress_expected[12] = 1'bX;
+end 
+// expected VGAmemAddress[ 11 ]
+initial
+begin
+	VGAmemAddress_expected[11] = 1'bX;
+end 
+// expected VGAmemAddress[ 10 ]
+initial
+begin
+	VGAmemAddress_expected[10] = 1'bX;
+end 
+// expected VGAmemAddress[ 9 ]
+initial
+begin
+	VGAmemAddress_expected[9] = 1'bX;
+end 
+// expected VGAmemAddress[ 8 ]
+initial
+begin
+	VGAmemAddress_expected[8] = 1'bX;
+end 
+// expected VGAmemAddress[ 7 ]
+initial
+begin
+	VGAmemAddress_expected[7] = 1'bX;
+end 
+// expected VGAmemAddress[ 6 ]
+initial
+begin
+	VGAmemAddress_expected[6] = 1'bX;
+end 
+// expected VGAmemAddress[ 5 ]
+initial
+begin
+	VGAmemAddress_expected[5] = 1'bX;
+end 
+// expected VGAmemAddress[ 4 ]
+initial
+begin
+	VGAmemAddress_expected[4] = 1'bX;
+end 
+// expected VGAmemAddress[ 3 ]
+initial
+begin
+	VGAmemAddress_expected[3] = 1'bX;
+end 
+// expected VGAmemAddress[ 2 ]
+initial
+begin
+	VGAmemAddress_expected[2] = 1'bX;
+end 
+// expected VGAmemAddress[ 1 ]
+initial
+begin
+	VGAmemAddress_expected[1] = 1'bX;
+end 
+// expected VGAmemAddress[ 0 ]
+initial
+begin
+	VGAmemAddress_expected[0] = 1'bX;
+end 
+
+// expected encryptedImageDisplayed
+initial
+begin
+	encryptedImageDisplayed_expected = 1'bX;
+end 
+// expected pixel[ 2 ]
+initial
+begin
+	pixel_expected[2] = 1'bX;
+end 
+// expected pixel[ 1 ]
+initial
+begin
+	pixel_expected[1] = 1'bX;
+end 
+// expected pixel[ 0 ]
+initial
+begin
+	pixel_expected[0] = 1'bX;
+end 
+// expected colour[ 2 ]
+initial
+begin
+	colour_expected[2] = 1'bX;
+end 
+// expected colour[ 1 ]
+initial
+begin
+	colour_expected[1] = 1'bX;
+end 
+// expected colour[ 0 ]
+initial
+begin
+	colour_expected[0] = 1'bX;
+end 
+
+// expected loaded
+initial
+begin
+	loaded_expected = 1'bX;
+end 
+
+// expected processed
+initial
+begin
+	processed_expected = 1'bX;
+end 
+
+// expected writeEnable
+initial
+begin
+	writeEnable_expected = 1'bX;
+end 
+
+// expected enable
+initial
+begin
+	enable_expected = 1'bX;
+end 
+// generate trigger
+always @(LEDG_expected or LEDG or LEDR_expected or LEDR or VGA_B_expected or VGA_B or VGA_BLANK_expected or VGA_BLANK or VGA_CLK_expected or VGA_CLK or VGA_G_expected or VGA_G or VGA_HS_expected or VGA_HS or VGA_R_expected or VGA_R or VGA_SYNC_expected or VGA_SYNC or VGA_VS_expected or VGA_VS or VGAmemAddress_expected or VGAmemAddress or colour_expected or colour or enable_expected or enable or encryptedImageDisplayed_expected or encryptedImageDisplayed or loaded_expected or loaded or pixel_expected or pixel or processed_expected or processed or writeEnable_expected or writeEnable)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected LEDG = %b | expected LEDR = %b | expected VGA_B = %b | expected VGA_BLANK = %b | expected VGA_CLK = %b | expected VGA_G = %b | expected VGA_HS = %b | expected VGA_R = %b | expected VGA_SYNC = %b | expected VGA_VS = %b | expected VGAmemAddress = %b | expected colour = %b | expected enable = %b | expected encryptedImageDisplayed = %b | expected loaded = %b | expected pixel = %b | expected processed = %b | expected writeEnable = %b | ",LEDG_expected_prev,LEDR_expected_prev,VGA_B_expected_prev,VGA_BLANK_expected_prev,VGA_CLK_expected_prev,VGA_G_expected_prev,VGA_HS_expected_prev,VGA_R_expected_prev,VGA_SYNC_expected_prev,VGA_VS_expected_prev,VGAmemAddress_expected_prev,colour_expected_prev,enable_expected_prev,encryptedImageDisplayed_expected_prev,loaded_expected_prev,pixel_expected_prev,processed_expected_prev,writeEnable_expected_prev);
+	$display("| real LEDG = %b | real LEDR = %b | real VGA_B = %b | real VGA_BLANK = %b | real VGA_CLK = %b | real VGA_G = %b | real VGA_HS = %b | real VGA_R = %b | real VGA_SYNC = %b | real VGA_VS = %b | real VGAmemAddress = %b | real colour = %b | real enable = %b | real encryptedImageDisplayed = %b | real loaded = %b | real pixel = %b | real processed = %b | real writeEnable = %b | ",LEDG_prev,LEDR_prev,VGA_B_prev,VGA_BLANK_prev,VGA_CLK_prev,VGA_G_prev,VGA_HS_prev,VGA_R_prev,VGA_SYNC_prev,VGA_VS_prev,VGAmemAddress_prev,colour_prev,enable_prev,encryptedImageDisplayed_prev,loaded_prev,pixel_prev,processed_prev,writeEnable_prev);
+`endif
+	if (
+		( VGA_B_expected_prev[0] !== 1'bx ) && ( VGA_B_prev[0] !== VGA_B_expected_prev[0] )
+		&& ((VGA_B_expected_prev[0] !== last_VGA_B_exp[0]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[0] = VGA_B_expected_prev[0];
+	end
+	if (
+		( VGA_B_expected_prev[1] !== 1'bx ) && ( VGA_B_prev[1] !== VGA_B_expected_prev[1] )
+		&& ((VGA_B_expected_prev[1] !== last_VGA_B_exp[1]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[1] = VGA_B_expected_prev[1];
+	end
+	if (
+		( VGA_B_expected_prev[2] !== 1'bx ) && ( VGA_B_prev[2] !== VGA_B_expected_prev[2] )
+		&& ((VGA_B_expected_prev[2] !== last_VGA_B_exp[2]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[2] = VGA_B_expected_prev[2];
+	end
+	if (
+		( VGA_B_expected_prev[3] !== 1'bx ) && ( VGA_B_prev[3] !== VGA_B_expected_prev[3] )
+		&& ((VGA_B_expected_prev[3] !== last_VGA_B_exp[3]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[3] = VGA_B_expected_prev[3];
+	end
+	if (
+		( VGA_B_expected_prev[4] !== 1'bx ) && ( VGA_B_prev[4] !== VGA_B_expected_prev[4] )
+		&& ((VGA_B_expected_prev[4] !== last_VGA_B_exp[4]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[4] = VGA_B_expected_prev[4];
+	end
+	if (
+		( VGA_B_expected_prev[5] !== 1'bx ) && ( VGA_B_prev[5] !== VGA_B_expected_prev[5] )
+		&& ((VGA_B_expected_prev[5] !== last_VGA_B_exp[5]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[5] = VGA_B_expected_prev[5];
+	end
+	if (
+		( VGA_B_expected_prev[6] !== 1'bx ) && ( VGA_B_prev[6] !== VGA_B_expected_prev[6] )
+		&& ((VGA_B_expected_prev[6] !== last_VGA_B_exp[6]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[6] = VGA_B_expected_prev[6];
+	end
+	if (
+		( VGA_B_expected_prev[7] !== 1'bx ) && ( VGA_B_prev[7] !== VGA_B_expected_prev[7] )
+		&& ((VGA_B_expected_prev[7] !== last_VGA_B_exp[7]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[7] = VGA_B_expected_prev[7];
+	end
+	if (
+		( VGA_B_expected_prev[8] !== 1'bx ) && ( VGA_B_prev[8] !== VGA_B_expected_prev[8] )
+		&& ((VGA_B_expected_prev[8] !== last_VGA_B_exp[8]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[8] = VGA_B_expected_prev[8];
+	end
+	if (
+		( VGA_B_expected_prev[9] !== 1'bx ) && ( VGA_B_prev[9] !== VGA_B_expected_prev[9] )
+		&& ((VGA_B_expected_prev[9] !== last_VGA_B_exp[9]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_B[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_B_expected_prev);
+		$display ("     Real value = %b", VGA_B_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_VGA_B_exp[9] = VGA_B_expected_prev[9];
+	end
+	if (
+		( VGA_BLANK_expected_prev !== 1'bx ) && ( VGA_BLANK_prev !== VGA_BLANK_expected_prev )
+		&& ((VGA_BLANK_expected_prev !== last_VGA_BLANK_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_BLANK :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_BLANK_expected_prev);
+		$display ("     Real value = %b", VGA_BLANK_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_VGA_BLANK_exp = VGA_BLANK_expected_prev;
+	end
+	if (
+		( VGA_CLK_expected_prev !== 1'bx ) && ( VGA_CLK_prev !== VGA_CLK_expected_prev )
+		&& ((VGA_CLK_expected_prev !== last_VGA_CLK_exp) ||
+			on_first_change[5])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_CLK :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_CLK_expected_prev);
+		$display ("     Real value = %b", VGA_CLK_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[5] = 1'b0;
+		last_VGA_CLK_exp = VGA_CLK_expected_prev;
+	end
+	if (
+		( VGA_G_expected_prev[0] !== 1'bx ) && ( VGA_G_prev[0] !== VGA_G_expected_prev[0] )
+		&& ((VGA_G_expected_prev[0] !== last_VGA_G_exp[0]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[0] = VGA_G_expected_prev[0];
+	end
+	if (
+		( VGA_G_expected_prev[1] !== 1'bx ) && ( VGA_G_prev[1] !== VGA_G_expected_prev[1] )
+		&& ((VGA_G_expected_prev[1] !== last_VGA_G_exp[1]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[1] = VGA_G_expected_prev[1];
+	end
+	if (
+		( VGA_G_expected_prev[2] !== 1'bx ) && ( VGA_G_prev[2] !== VGA_G_expected_prev[2] )
+		&& ((VGA_G_expected_prev[2] !== last_VGA_G_exp[2]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[2] = VGA_G_expected_prev[2];
+	end
+	if (
+		( VGA_G_expected_prev[3] !== 1'bx ) && ( VGA_G_prev[3] !== VGA_G_expected_prev[3] )
+		&& ((VGA_G_expected_prev[3] !== last_VGA_G_exp[3]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[3] = VGA_G_expected_prev[3];
+	end
+	if (
+		( VGA_G_expected_prev[4] !== 1'bx ) && ( VGA_G_prev[4] !== VGA_G_expected_prev[4] )
+		&& ((VGA_G_expected_prev[4] !== last_VGA_G_exp[4]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[4] = VGA_G_expected_prev[4];
+	end
+	if (
+		( VGA_G_expected_prev[5] !== 1'bx ) && ( VGA_G_prev[5] !== VGA_G_expected_prev[5] )
+		&& ((VGA_G_expected_prev[5] !== last_VGA_G_exp[5]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[5] = VGA_G_expected_prev[5];
+	end
+	if (
+		( VGA_G_expected_prev[6] !== 1'bx ) && ( VGA_G_prev[6] !== VGA_G_expected_prev[6] )
+		&& ((VGA_G_expected_prev[6] !== last_VGA_G_exp[6]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[6] = VGA_G_expected_prev[6];
+	end
+	if (
+		( VGA_G_expected_prev[7] !== 1'bx ) && ( VGA_G_prev[7] !== VGA_G_expected_prev[7] )
+		&& ((VGA_G_expected_prev[7] !== last_VGA_G_exp[7]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[7] = VGA_G_expected_prev[7];
+	end
+	if (
+		( VGA_G_expected_prev[8] !== 1'bx ) && ( VGA_G_prev[8] !== VGA_G_expected_prev[8] )
+		&& ((VGA_G_expected_prev[8] !== last_VGA_G_exp[8]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[8] = VGA_G_expected_prev[8];
+	end
+	if (
+		( VGA_G_expected_prev[9] !== 1'bx ) && ( VGA_G_prev[9] !== VGA_G_expected_prev[9] )
+		&& ((VGA_G_expected_prev[9] !== last_VGA_G_exp[9]) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_G[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_G_expected_prev);
+		$display ("     Real value = %b", VGA_G_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_VGA_G_exp[9] = VGA_G_expected_prev[9];
+	end
+	if (
+		( VGA_HS_expected_prev !== 1'bx ) && ( VGA_HS_prev !== VGA_HS_expected_prev )
+		&& ((VGA_HS_expected_prev !== last_VGA_HS_exp) ||
+			on_first_change[7])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_HS :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_HS_expected_prev);
+		$display ("     Real value = %b", VGA_HS_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[7] = 1'b0;
+		last_VGA_HS_exp = VGA_HS_expected_prev;
+	end
+	if (
+		( VGA_R_expected_prev[0] !== 1'bx ) && ( VGA_R_prev[0] !== VGA_R_expected_prev[0] )
+		&& ((VGA_R_expected_prev[0] !== last_VGA_R_exp[0]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[0] = VGA_R_expected_prev[0];
+	end
+	if (
+		( VGA_R_expected_prev[1] !== 1'bx ) && ( VGA_R_prev[1] !== VGA_R_expected_prev[1] )
+		&& ((VGA_R_expected_prev[1] !== last_VGA_R_exp[1]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[1] = VGA_R_expected_prev[1];
+	end
+	if (
+		( VGA_R_expected_prev[2] !== 1'bx ) && ( VGA_R_prev[2] !== VGA_R_expected_prev[2] )
+		&& ((VGA_R_expected_prev[2] !== last_VGA_R_exp[2]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[2] = VGA_R_expected_prev[2];
+	end
+	if (
+		( VGA_R_expected_prev[3] !== 1'bx ) && ( VGA_R_prev[3] !== VGA_R_expected_prev[3] )
+		&& ((VGA_R_expected_prev[3] !== last_VGA_R_exp[3]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[3] = VGA_R_expected_prev[3];
+	end
+	if (
+		( VGA_R_expected_prev[4] !== 1'bx ) && ( VGA_R_prev[4] !== VGA_R_expected_prev[4] )
+		&& ((VGA_R_expected_prev[4] !== last_VGA_R_exp[4]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[4] = VGA_R_expected_prev[4];
+	end
+	if (
+		( VGA_R_expected_prev[5] !== 1'bx ) && ( VGA_R_prev[5] !== VGA_R_expected_prev[5] )
+		&& ((VGA_R_expected_prev[5] !== last_VGA_R_exp[5]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[5] = VGA_R_expected_prev[5];
+	end
+	if (
+		( VGA_R_expected_prev[6] !== 1'bx ) && ( VGA_R_prev[6] !== VGA_R_expected_prev[6] )
+		&& ((VGA_R_expected_prev[6] !== last_VGA_R_exp[6]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[6] = VGA_R_expected_prev[6];
+	end
+	if (
+		( VGA_R_expected_prev[7] !== 1'bx ) && ( VGA_R_prev[7] !== VGA_R_expected_prev[7] )
+		&& ((VGA_R_expected_prev[7] !== last_VGA_R_exp[7]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[7] = VGA_R_expected_prev[7];
+	end
+	if (
+		( VGA_R_expected_prev[8] !== 1'bx ) && ( VGA_R_prev[8] !== VGA_R_expected_prev[8] )
+		&& ((VGA_R_expected_prev[8] !== last_VGA_R_exp[8]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[8] = VGA_R_expected_prev[8];
+	end
+	if (
+		( VGA_R_expected_prev[9] !== 1'bx ) && ( VGA_R_prev[9] !== VGA_R_expected_prev[9] )
+		&& ((VGA_R_expected_prev[9] !== last_VGA_R_exp[9]) ||
+			on_first_change[8])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_R[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_R_expected_prev);
+		$display ("     Real value = %b", VGA_R_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[8] = 1'b0;
+		last_VGA_R_exp[9] = VGA_R_expected_prev[9];
+	end
+	if (
+		( VGA_SYNC_expected_prev !== 1'bx ) && ( VGA_SYNC_prev !== VGA_SYNC_expected_prev )
+		&& ((VGA_SYNC_expected_prev !== last_VGA_SYNC_exp) ||
+			on_first_change[9])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_SYNC :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_SYNC_expected_prev);
+		$display ("     Real value = %b", VGA_SYNC_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[9] = 1'b0;
+		last_VGA_SYNC_exp = VGA_SYNC_expected_prev;
+	end
+	if (
+		( VGA_VS_expected_prev !== 1'bx ) && ( VGA_VS_prev !== VGA_VS_expected_prev )
+		&& ((VGA_VS_expected_prev !== last_VGA_VS_exp) ||
+			on_first_change[10])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGA_VS :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGA_VS_expected_prev);
+		$display ("     Real value = %b", VGA_VS_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[10] = 1'b0;
+		last_VGA_VS_exp = VGA_VS_expected_prev;
+	end
+	if (
+		( VGAmemAddress_expected_prev[0] !== 1'bx ) && ( VGAmemAddress_prev[0] !== VGAmemAddress_expected_prev[0] )
+		&& ((VGAmemAddress_expected_prev[0] !== last_VGAmemAddress_exp[0]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[0] = VGAmemAddress_expected_prev[0];
+	end
+	if (
+		( VGAmemAddress_expected_prev[1] !== 1'bx ) && ( VGAmemAddress_prev[1] !== VGAmemAddress_expected_prev[1] )
+		&& ((VGAmemAddress_expected_prev[1] !== last_VGAmemAddress_exp[1]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[1] = VGAmemAddress_expected_prev[1];
+	end
+	if (
+		( VGAmemAddress_expected_prev[2] !== 1'bx ) && ( VGAmemAddress_prev[2] !== VGAmemAddress_expected_prev[2] )
+		&& ((VGAmemAddress_expected_prev[2] !== last_VGAmemAddress_exp[2]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[2] = VGAmemAddress_expected_prev[2];
+	end
+	if (
+		( VGAmemAddress_expected_prev[3] !== 1'bx ) && ( VGAmemAddress_prev[3] !== VGAmemAddress_expected_prev[3] )
+		&& ((VGAmemAddress_expected_prev[3] !== last_VGAmemAddress_exp[3]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[3] = VGAmemAddress_expected_prev[3];
+	end
+	if (
+		( VGAmemAddress_expected_prev[4] !== 1'bx ) && ( VGAmemAddress_prev[4] !== VGAmemAddress_expected_prev[4] )
+		&& ((VGAmemAddress_expected_prev[4] !== last_VGAmemAddress_exp[4]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[4] = VGAmemAddress_expected_prev[4];
+	end
+	if (
+		( VGAmemAddress_expected_prev[5] !== 1'bx ) && ( VGAmemAddress_prev[5] !== VGAmemAddress_expected_prev[5] )
+		&& ((VGAmemAddress_expected_prev[5] !== last_VGAmemAddress_exp[5]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[5] = VGAmemAddress_expected_prev[5];
+	end
+	if (
+		( VGAmemAddress_expected_prev[6] !== 1'bx ) && ( VGAmemAddress_prev[6] !== VGAmemAddress_expected_prev[6] )
+		&& ((VGAmemAddress_expected_prev[6] !== last_VGAmemAddress_exp[6]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[6] = VGAmemAddress_expected_prev[6];
+	end
+	if (
+		( VGAmemAddress_expected_prev[7] !== 1'bx ) && ( VGAmemAddress_prev[7] !== VGAmemAddress_expected_prev[7] )
+		&& ((VGAmemAddress_expected_prev[7] !== last_VGAmemAddress_exp[7]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[7] = VGAmemAddress_expected_prev[7];
+	end
+	if (
+		( VGAmemAddress_expected_prev[8] !== 1'bx ) && ( VGAmemAddress_prev[8] !== VGAmemAddress_expected_prev[8] )
+		&& ((VGAmemAddress_expected_prev[8] !== last_VGAmemAddress_exp[8]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[8] = VGAmemAddress_expected_prev[8];
+	end
+	if (
+		( VGAmemAddress_expected_prev[9] !== 1'bx ) && ( VGAmemAddress_prev[9] !== VGAmemAddress_expected_prev[9] )
+		&& ((VGAmemAddress_expected_prev[9] !== last_VGAmemAddress_exp[9]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[9] = VGAmemAddress_expected_prev[9];
+	end
+	if (
+		( VGAmemAddress_expected_prev[10] !== 1'bx ) && ( VGAmemAddress_prev[10] !== VGAmemAddress_expected_prev[10] )
+		&& ((VGAmemAddress_expected_prev[10] !== last_VGAmemAddress_exp[10]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[10] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[10] = VGAmemAddress_expected_prev[10];
+	end
+	if (
+		( VGAmemAddress_expected_prev[11] !== 1'bx ) && ( VGAmemAddress_prev[11] !== VGAmemAddress_expected_prev[11] )
+		&& ((VGAmemAddress_expected_prev[11] !== last_VGAmemAddress_exp[11]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[11] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[11] = VGAmemAddress_expected_prev[11];
+	end
+	if (
+		( VGAmemAddress_expected_prev[12] !== 1'bx ) && ( VGAmemAddress_prev[12] !== VGAmemAddress_expected_prev[12] )
+		&& ((VGAmemAddress_expected_prev[12] !== last_VGAmemAddress_exp[12]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[12] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[12] = VGAmemAddress_expected_prev[12];
+	end
+	if (
+		( VGAmemAddress_expected_prev[13] !== 1'bx ) && ( VGAmemAddress_prev[13] !== VGAmemAddress_expected_prev[13] )
+		&& ((VGAmemAddress_expected_prev[13] !== last_VGAmemAddress_exp[13]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[13] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[13] = VGAmemAddress_expected_prev[13];
+	end
+	if (
+		( VGAmemAddress_expected_prev[14] !== 1'bx ) && ( VGAmemAddress_prev[14] !== VGAmemAddress_expected_prev[14] )
+		&& ((VGAmemAddress_expected_prev[14] !== last_VGAmemAddress_exp[14]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[14] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[14] = VGAmemAddress_expected_prev[14];
+	end
+	if (
+		( VGAmemAddress_expected_prev[15] !== 1'bx ) && ( VGAmemAddress_prev[15] !== VGAmemAddress_expected_prev[15] )
+		&& ((VGAmemAddress_expected_prev[15] !== last_VGAmemAddress_exp[15]) ||
+			on_first_change[11])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port VGAmemAddress[15] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", VGAmemAddress_expected_prev);
+		$display ("     Real value = %b", VGAmemAddress_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[11] = 1'b0;
+		last_VGAmemAddress_exp[15] = VGAmemAddress_expected_prev[15];
+	end
+	if (
+		( colour_expected_prev[0] !== 1'bx ) && ( colour_prev[0] !== colour_expected_prev[0] )
+		&& ((colour_expected_prev[0] !== last_colour_exp[0]) ||
+			on_first_change[12])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port colour[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", colour_expected_prev);
+		$display ("     Real value = %b", colour_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[12] = 1'b0;
+		last_colour_exp[0] = colour_expected_prev[0];
+	end
+	if (
+		( colour_expected_prev[1] !== 1'bx ) && ( colour_prev[1] !== colour_expected_prev[1] )
+		&& ((colour_expected_prev[1] !== last_colour_exp[1]) ||
+			on_first_change[12])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port colour[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", colour_expected_prev);
+		$display ("     Real value = %b", colour_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[12] = 1'b0;
+		last_colour_exp[1] = colour_expected_prev[1];
+	end
+	if (
+		( colour_expected_prev[2] !== 1'bx ) && ( colour_prev[2] !== colour_expected_prev[2] )
+		&& ((colour_expected_prev[2] !== last_colour_exp[2]) ||
+			on_first_change[12])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port colour[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", colour_expected_prev);
+		$display ("     Real value = %b", colour_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[12] = 1'b0;
+		last_colour_exp[2] = colour_expected_prev[2];
+	end
+	if (
+		( enable_expected_prev !== 1'bx ) && ( enable_prev !== enable_expected_prev )
+		&& ((enable_expected_prev !== last_enable_exp) ||
+			on_first_change[13])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port enable :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", enable_expected_prev);
+		$display ("     Real value = %b", enable_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[13] = 1'b0;
+		last_enable_exp = enable_expected_prev;
+	end
+	if (
+		( encryptedImageDisplayed_expected_prev !== 1'bx ) && ( encryptedImageDisplayed_prev !== encryptedImageDisplayed_expected_prev )
+		&& ((encryptedImageDisplayed_expected_prev !== last_encryptedImageDisplayed_exp) ||
+			on_first_change[14])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port encryptedImageDisplayed :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", encryptedImageDisplayed_expected_prev);
+		$display ("     Real value = %b", encryptedImageDisplayed_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[14] = 1'b0;
+		last_encryptedImageDisplayed_exp = encryptedImageDisplayed_expected_prev;
+	end
+	if (
+		( loaded_expected_prev !== 1'bx ) && ( loaded_prev !== loaded_expected_prev )
+		&& ((loaded_expected_prev !== last_loaded_exp) ||
+			on_first_change[15])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port loaded :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", loaded_expected_prev);
+		$display ("     Real value = %b", loaded_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[15] = 1'b0;
+		last_loaded_exp = loaded_expected_prev;
+	end
+	if (
+		( pixel_expected_prev[0] !== 1'bx ) && ( pixel_prev[0] !== pixel_expected_prev[0] )
+		&& ((pixel_expected_prev[0] !== last_pixel_exp[0]) ||
+			on_first_change[16])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port pixel[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", pixel_expected_prev);
+		$display ("     Real value = %b", pixel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[16] = 1'b0;
+		last_pixel_exp[0] = pixel_expected_prev[0];
+	end
+	if (
+		( pixel_expected_prev[1] !== 1'bx ) && ( pixel_prev[1] !== pixel_expected_prev[1] )
+		&& ((pixel_expected_prev[1] !== last_pixel_exp[1]) ||
+			on_first_change[16])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port pixel[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", pixel_expected_prev);
+		$display ("     Real value = %b", pixel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[16] = 1'b0;
+		last_pixel_exp[1] = pixel_expected_prev[1];
+	end
+	if (
+		( pixel_expected_prev[2] !== 1'bx ) && ( pixel_prev[2] !== pixel_expected_prev[2] )
+		&& ((pixel_expected_prev[2] !== last_pixel_exp[2]) ||
+			on_first_change[16])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port pixel[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", pixel_expected_prev);
+		$display ("     Real value = %b", pixel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[16] = 1'b0;
+		last_pixel_exp[2] = pixel_expected_prev[2];
+	end
+	if (
+		( processed_expected_prev !== 1'bx ) && ( processed_prev !== processed_expected_prev )
+		&& ((processed_expected_prev !== last_processed_exp) ||
+			on_first_change[17])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port processed :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", processed_expected_prev);
+		$display ("     Real value = %b", processed_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[17] = 1'b0;
+		last_processed_exp = processed_expected_prev;
+	end
+	if (
+		( writeEnable_expected_prev !== 1'bx ) && ( writeEnable_prev !== writeEnable_expected_prev )
+		&& ((writeEnable_expected_prev !== last_writeEnable_exp) ||
+			on_first_change[18])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port writeEnable :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", writeEnable_expected_prev);
+		$display ("     Real value = %b", writeEnable_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[18] = 1'b0;
+		last_writeEnable_exp = writeEnable_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module ImageGenerator_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg CLOCK_50;
+reg [0:0] KEY;
+reg [17:0] SW;
+reg clock;
+reg [15:0] encryptedSubmatrixElements;
+reg readyToBeProcessed;
+reg resetN;
+reg userEnable;
+// wires                                               
+wire [7:0] LEDG;
+wire [17:0] LEDR;
+wire [9:0] VGA_B;
+wire VGA_BLANK;
+wire VGA_CLK;
+wire [9:0] VGA_G;
+wire VGA_HS;
+wire [9:0] VGA_R;
+wire VGA_SYNC;
+wire VGA_VS;
+wire [15:0] VGAmemAddress;
+wire [2:0] colour;
+wire enable;
+wire encryptedImageDisplayed;
+wire loaded;
+wire [2:0] pixel;
+wire processed;
+wire writeEnable;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+ImageGenerator i1 (
+// port map - connection between master ports and signals/registers   
+	.CLOCK_50(CLOCK_50),
+	.KEY(KEY),
+	.LEDG(LEDG),
+	.LEDR(LEDR),
+	.SW(SW),
+	.VGA_B(VGA_B),
+	.VGA_BLANK(VGA_BLANK),
+	.VGA_CLK(VGA_CLK),
+	.VGA_G(VGA_G),
+	.VGA_HS(VGA_HS),
+	.VGA_R(VGA_R),
+	.VGA_SYNC(VGA_SYNC),
+	.VGA_VS(VGA_VS),
+	.VGAmemAddress(VGAmemAddress),
+	.clock(clock),
+	.colour(colour),
+	.enable(enable),
+	.encryptedImageDisplayed(encryptedImageDisplayed),
+	.encryptedSubmatrixElements(encryptedSubmatrixElements),
+	.loaded(loaded),
+	.pixel(pixel),
+	.processed(processed),
+	.readyToBeProcessed(readyToBeProcessed),
+	.resetN(resetN),
+	.userEnable(userEnable),
+	.writeEnable(writeEnable)
+);
+
+// CLOCK_50
+initial
+begin
+	CLOCK_50 = 1'b0;
+	CLOCK_50 = #20000 1'b1;
+	# 10000;
+	repeat(48)
+	begin
+		CLOCK_50 = 1'b0;
+		CLOCK_50 = #10000 1'b1;
+		# 10000;
+	end
+	CLOCK_50 = 1'b0;
+end 
+
+// clock
+initial
+begin
+	clock = 1'b0;
+	clock = #20000 1'b1;
+	# 10000;
+	repeat(48)
+	begin
+		clock = 1'b0;
+		clock = #10000 1'b1;
+		# 10000;
+	end
+	clock = 1'b0;
+end 
+// encryptedSubmatrixElements[ 15 ]
+initial
+begin
+	encryptedSubmatrixElements[15] = 1'b1;
+	encryptedSubmatrixElements[15] = #500000 1'b0;
+end 
+// encryptedSubmatrixElements[ 14 ]
+initial
+begin
+	encryptedSubmatrixElements[14] = 1'b0;
+end 
+// encryptedSubmatrixElements[ 13 ]
+initial
+begin
+	encryptedSubmatrixElements[13] = 1'b1;
+	encryptedSubmatrixElements[13] = #500000 1'b0;
+end 
+// encryptedSubmatrixElements[ 12 ]
+initial
+begin
+	encryptedSubmatrixElements[12] = 1'b1;
+	encryptedSubmatrixElements[12] = #500000 1'b0;
+end 
+// encryptedSubmatrixElements[ 11 ]
+initial
+begin
+	encryptedSubmatrixElements[11] = 1'b1;
+end 
+// encryptedSubmatrixElements[ 10 ]
+initial
+begin
+	encryptedSubmatrixElements[10] = 1'b1;
+end 
+// encryptedSubmatrixElements[ 9 ]
+initial
+begin
+	encryptedSubmatrixElements[9] = 1'b1;
+	encryptedSubmatrixElements[9] = #500000 1'b0;
+end 
+// encryptedSubmatrixElements[ 8 ]
+initial
+begin
+	encryptedSubmatrixElements[8] = 1'b1;
+	encryptedSubmatrixElements[8] = #500000 1'b0;
+end 
+// encryptedSubmatrixElements[ 7 ]
+initial
+begin
+	encryptedSubmatrixElements[7] = 1'b0;
+	encryptedSubmatrixElements[7] = #500000 1'b1;
+end 
+// encryptedSubmatrixElements[ 6 ]
+initial
+begin
+	encryptedSubmatrixElements[6] = 1'b1;
+end 
+// encryptedSubmatrixElements[ 5 ]
+initial
+begin
+	encryptedSubmatrixElements[5] = 1'b0;
+end 
+// encryptedSubmatrixElements[ 4 ]
+initial
+begin
+	encryptedSubmatrixElements[4] = 1'b1;
+	encryptedSubmatrixElements[4] = #500000 1'b0;
+end 
+// encryptedSubmatrixElements[ 3 ]
+initial
+begin
+	encryptedSubmatrixElements[3] = 1'b0;
+	encryptedSubmatrixElements[3] = #500000 1'b1;
+end 
+// encryptedSubmatrixElements[ 2 ]
+initial
+begin
+	encryptedSubmatrixElements[2] = 1'b1;
+end 
+// encryptedSubmatrixElements[ 1 ]
+initial
+begin
+	encryptedSubmatrixElements[1] = 1'b0;
+	encryptedSubmatrixElements[1] = #500000 1'b1;
+end 
+// encryptedSubmatrixElements[ 0 ]
+initial
+begin
+	encryptedSubmatrixElements[0] = 1'b0;
+	encryptedSubmatrixElements[0] = #500000 1'b1;
+end 
+
+// readyToBeProcessed
+initial
+begin
+	readyToBeProcessed = 1'b0;
+	readyToBeProcessed = #60000 1'b1;
+	readyToBeProcessed = #300000 1'b0;
+	readyToBeProcessed = #220000 1'b1;
+end 
+
+// resetN
+initial
+begin
+	resetN = 1'b0;
+	resetN = #40000 1'b1;
+end 
+
+// userEnable
+initial
+begin
+	userEnable = 1'b0;
+	userEnable = #60000 1'b1;
+end 
+
+ImageGenerator_vlg_sample_tst tb_sample (
+	.CLOCK_50(CLOCK_50),
+	.KEY(KEY),
+	.SW(SW),
+	.clock(clock),
+	.encryptedSubmatrixElements(encryptedSubmatrixElements),
+	.readyToBeProcessed(readyToBeProcessed),
+	.resetN(resetN),
+	.userEnable(userEnable),
+	.sampler_tx(sampler)
+);
+
+ImageGenerator_vlg_check_tst tb_out(
+	.LEDG(LEDG),
+	.LEDR(LEDR),
+	.VGA_B(VGA_B),
+	.VGA_BLANK(VGA_BLANK),
+	.VGA_CLK(VGA_CLK),
+	.VGA_G(VGA_G),
+	.VGA_HS(VGA_HS),
+	.VGA_R(VGA_R),
+	.VGA_SYNC(VGA_SYNC),
+	.VGA_VS(VGA_VS),
+	.VGAmemAddress(VGAmemAddress),
+	.colour(colour),
+	.enable(enable),
+	.encryptedImageDisplayed(encryptedImageDisplayed),
+	.loaded(loaded),
+	.pixel(pixel),
+	.processed(processed),
+	.writeEnable(writeEnable),
+	.sampler_rx(sampler)
+);
+endmodule
+

@@ -28,7 +28,7 @@ HEADER
 	DATA_DURATION = 1000.0;
 	SIMULATION_TIME = 1000.0;
 	GRID_PHASE = 0.0;
-	GRID_PERIOD = 40.0;
+	GRID_PERIOD = 20.0;
 	GRID_DUTY_CYCLE = 50;
 }
 
@@ -252,7 +252,7 @@ SIGNAL("userEnable")
 	PARENT = "";
 }
 
-SIGNAL("addressTest")
+SIGNAL("address")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = BUS;
@@ -262,347 +262,167 @@ SIGNAL("addressTest")
 	PARENT = "";
 }
 
-SIGNAL("addressTest[15]")
+SIGNAL("address[15]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[14]")
+SIGNAL("address[14]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[13]")
+SIGNAL("address[13]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[12]")
+SIGNAL("address[12]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[11]")
+SIGNAL("address[11]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[10]")
+SIGNAL("address[10]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[9]")
+SIGNAL("address[9]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[8]")
+SIGNAL("address[8]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[7]")
+SIGNAL("address[7]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[6]")
+SIGNAL("address[6]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[5]")
+SIGNAL("address[5]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[4]")
+SIGNAL("address[4]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[3]")
+SIGNAL("address[3]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[2]")
+SIGNAL("address[2]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[1]")
+SIGNAL("address[1]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("addressTest[0]")
+SIGNAL("address[0]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "addressTest";
+	PARENT = "address";
 }
 
-SIGNAL("elementTest")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("Counter:addressTraverser|count")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 16;
-	LSB_INDEX = 0;
-	DIRECTION = BURIED;
-	PARENT = "";
-}
-
-SIGNAL("Counter:addressTraverser|count[15]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[14]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[13]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[12]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[11]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[10]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[9]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[8]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[7]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[6]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[5]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[4]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("Counter:addressTraverser|count[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = BURIED;
-	PARENT = "Counter:addressTraverser|count";
-}
-
-SIGNAL("enableDelayTest")
+SIGNAL("element")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -612,7 +432,7 @@ SIGNAL("enableDelayTest")
 	PARENT = "";
 }
 
-SIGNAL("enableTest")
+SIGNAL("enable")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
@@ -627,15 +447,15 @@ TRANSITION_LIST("clock")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
 		NODE
 		{
-			REPEAT = 23;
-			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 20.0;
+			REPEAT = 48;
+			LEVEL 0 FOR 10.0;
+			LEVEL 1 FOR 10.0;
 		}
-		LEVEL 0 FOR 20.0;
+		LEVEL 0 FOR 10.0;
 	}
 }
 
@@ -644,9 +464,11 @@ TRANSITION_LIST("loaded")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 760.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 200.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 300.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 220.0;
 	}
 }
 
@@ -664,7 +486,8 @@ TRANSITION_LIST("resetN")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 940.0;
 	}
 }
 
@@ -673,7 +496,8 @@ TRANSITION_LIST("submatrixElements[15]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 560.0;
 	}
 }
 
@@ -682,7 +506,8 @@ TRANSITION_LIST("submatrixElements[14]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 760.0;
+		LEVEL 1 FOR 240.0;
 	}
 }
 
@@ -691,8 +516,9 @@ TRANSITION_LIST("submatrixElements[13]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 760.0;
-		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 240.0;
 	}
 }
 
@@ -731,7 +557,8 @@ TRANSITION_LIST("submatrixElements[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 560.0;
 	}
 }
 
@@ -750,8 +577,8 @@ TRANSITION_LIST("submatrixElements[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 760.0;
-		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 560.0;
 	}
 }
 
@@ -760,8 +587,7 @@ TRANSITION_LIST("submatrixElements[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 760.0;
-		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -780,7 +606,8 @@ TRANSITION_LIST("submatrixElements[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 560.0;
 	}
 }
 
@@ -789,8 +616,8 @@ TRANSITION_LIST("submatrixElements[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 760.0;
-		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 560.0;
 	}
 }
 
@@ -799,8 +626,8 @@ TRANSITION_LIST("submatrixElements[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 760.0;
-		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 560.0;
 	}
 }
 
@@ -809,8 +636,9 @@ TRANSITION_LIST("submatrixElements[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 760.0;
-		LEVEL 1 FOR 240.0;
+		LEVEL 0 FOR 440.0;
+		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 240.0;
 	}
 }
 
@@ -829,12 +657,12 @@ TRANSITION_LIST("userEnable")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 80.0;
-		LEVEL 1 FOR 920.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 900.0;
 	}
 }
 
-TRANSITION_LIST("addressTest[15]")
+TRANSITION_LIST("address[15]")
 {
 	NODE
 	{
@@ -843,7 +671,7 @@ TRANSITION_LIST("addressTest[15]")
 	}
 }
 
-TRANSITION_LIST("addressTest[14]")
+TRANSITION_LIST("address[14]")
 {
 	NODE
 	{
@@ -852,7 +680,7 @@ TRANSITION_LIST("addressTest[14]")
 	}
 }
 
-TRANSITION_LIST("addressTest[13]")
+TRANSITION_LIST("address[13]")
 {
 	NODE
 	{
@@ -861,7 +689,7 @@ TRANSITION_LIST("addressTest[13]")
 	}
 }
 
-TRANSITION_LIST("addressTest[12]")
+TRANSITION_LIST("address[12]")
 {
 	NODE
 	{
@@ -870,7 +698,7 @@ TRANSITION_LIST("addressTest[12]")
 	}
 }
 
-TRANSITION_LIST("addressTest[11]")
+TRANSITION_LIST("address[11]")
 {
 	NODE
 	{
@@ -879,7 +707,7 @@ TRANSITION_LIST("addressTest[11]")
 	}
 }
 
-TRANSITION_LIST("addressTest[10]")
+TRANSITION_LIST("address[10]")
 {
 	NODE
 	{
@@ -888,7 +716,7 @@ TRANSITION_LIST("addressTest[10]")
 	}
 }
 
-TRANSITION_LIST("addressTest[9]")
+TRANSITION_LIST("address[9]")
 {
 	NODE
 	{
@@ -897,7 +725,7 @@ TRANSITION_LIST("addressTest[9]")
 	}
 }
 
-TRANSITION_LIST("addressTest[8]")
+TRANSITION_LIST("address[8]")
 {
 	NODE
 	{
@@ -906,7 +734,7 @@ TRANSITION_LIST("addressTest[8]")
 	}
 }
 
-TRANSITION_LIST("addressTest[7]")
+TRANSITION_LIST("address[7]")
 {
 	NODE
 	{
@@ -915,7 +743,7 @@ TRANSITION_LIST("addressTest[7]")
 	}
 }
 
-TRANSITION_LIST("addressTest[6]")
+TRANSITION_LIST("address[6]")
 {
 	NODE
 	{
@@ -924,85 +752,44 @@ TRANSITION_LIST("addressTest[6]")
 	}
 }
 
-TRANSITION_LIST("addressTest[5]")
+TRANSITION_LIST("address[5]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 720.0;
+		LEVEL 1 FOR 280.0;
 	}
 }
 
-TRANSITION_LIST("addressTest[4]")
+TRANSITION_LIST("address[4]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 680.0;
+		LEVEL 0 FOR 400.0;
 		LEVEL 1 FOR 320.0;
+		LEVEL 0 FOR 280.0;
 	}
 }
 
-TRANSITION_LIST("addressTest[3]")
+TRANSITION_LIST("address[3]")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 360.0;
-		LEVEL 1 FOR 320.0;
-		LEVEL 0 FOR 320.0;
-	}
-}
-
-TRANSITION_LIST("addressTest[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 200.0;
+		LEVEL 0 FOR 240.0;
 		NODE
 		{
 			REPEAT = 2;
 			LEVEL 1 FOR 160.0;
 			LEVEL 0 FOR 160.0;
 		}
-		LEVEL 1 FOR 160.0;
+		LEVEL 1 FOR 120.0;
 	}
 }
 
-TRANSITION_LIST("addressTest[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 120.0;
-		NODE
-		{
-			REPEAT = 5;
-			LEVEL 1 FOR 80.0;
-			LEVEL 0 FOR 80.0;
-		}
-		LEVEL 1 FOR 80.0;
-	}
-}
-
-TRANSITION_LIST("addressTest[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 80.0;
-		NODE
-		{
-			REPEAT = 11;
-			LEVEL 1 FOR 40.0;
-			LEVEL 0 FOR 40.0;
-		}
-		LEVEL 1 FOR 40.0;
-	}
-}
-
-TRANSITION_LIST("elementTest")
+TRANSITION_LIST("address[2]")
 {
 	NODE
 	{
@@ -1010,153 +797,15 @@ TRANSITION_LIST("elementTest")
 		LEVEL 0 FOR 160.0;
 		NODE
 		{
-			REPEAT = 3;
-			LEVEL 1 FOR 160.0;
-			LEVEL 0 FOR 40.0;
+			REPEAT = 5;
+			LEVEL 1 FOR 80.0;
+			LEVEL 0 FOR 80.0;
 		}
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 120.0;
+		LEVEL 1 FOR 40.0;
 	}
 }
 
-TRANSITION_LIST("Counter:addressTraverser|count[15]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[14]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[13]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[12]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[11]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[10]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[9]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[8]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[7]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[6]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[5]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[4]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 680.0;
-		LEVEL 1 FOR 320.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 360.0;
-		LEVEL 1 FOR 320.0;
-		LEVEL 0 FOR 320.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 200.0;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 1 FOR 160.0;
-			LEVEL 0 FOR 160.0;
-		}
-		LEVEL 1 FOR 160.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[1]")
+TRANSITION_LIST("address[1]")
 {
 	NODE
 	{
@@ -1164,53 +813,74 @@ TRANSITION_LIST("Counter:addressTraverser|count[1]")
 		LEVEL 0 FOR 120.0;
 		NODE
 		{
-			REPEAT = 5;
-			LEVEL 1 FOR 80.0;
-			LEVEL 0 FOR 80.0;
-		}
-		LEVEL 1 FOR 80.0;
-	}
-}
-
-TRANSITION_LIST("Counter:addressTraverser|count[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 80.0;
-		NODE
-		{
 			REPEAT = 11;
 			LEVEL 1 FOR 40.0;
 			LEVEL 0 FOR 40.0;
 		}
+	}
+}
+
+TRANSITION_LIST("address[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 100.0;
+		NODE
+		{
+			REPEAT = 22;
+			LEVEL 1 FOR 20.0;
+			LEVEL 0 FOR 20.0;
+		}
+		LEVEL 1 FOR 20.0;
+	}
+}
+
+TRANSITION_LIST("element")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 80.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 120.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
 	}
 }
 
-TRANSITION_LIST("enableDelayTest")
+TRANSITION_LIST("enable")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 80.0;
-		LEVEL 1 FOR 920.0;
-	}
-}
-
-TRANSITION_LIST("enableTest")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 80.0;
-		LEVEL 1 FOR 920.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 900.0;
 	}
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "resetN";
+	CHANNEL = "clock";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 0;
@@ -1219,7 +889,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "clock";
+	CHANNEL = "loaded";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 1;
@@ -1228,7 +898,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "readyToBeLoaded";
+	CHANNEL = "userEnable";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 2;
@@ -1237,7 +907,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "userEnable";
+	CHANNEL = "readyToBeLoaded";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;
@@ -1246,12 +916,21 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "submatrixElements";
+	CHANNEL = "resetN";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 4;
 	TREE_LEVEL = 0;
-	CHILDREN = 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "submatrixElements";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 0;
+	CHILDREN = 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21;
 }
 
 DISPLAY_LINE
@@ -1259,9 +938,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[15]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 5;
+	TREE_INDEX = 6;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1269,9 +948,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[14]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 6;
+	TREE_INDEX = 7;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1279,9 +958,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[13]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 7;
+	TREE_INDEX = 8;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1289,9 +968,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[12]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 8;
+	TREE_INDEX = 9;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1299,9 +978,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[11]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 9;
+	TREE_INDEX = 10;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1309,9 +988,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[10]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 10;
+	TREE_INDEX = 11;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1319,9 +998,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[9]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 11;
+	TREE_INDEX = 12;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1329,9 +1008,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[8]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 12;
+	TREE_INDEX = 13;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1339,9 +1018,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 13;
+	TREE_INDEX = 14;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1349,9 +1028,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 14;
+	TREE_INDEX = 15;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1359,9 +1038,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 15;
+	TREE_INDEX = 16;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1369,9 +1048,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 16;
+	TREE_INDEX = 17;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1379,9 +1058,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 17;
+	TREE_INDEX = 18;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1389,9 +1068,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 18;
+	TREE_INDEX = 19;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1399,9 +1078,9 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 19;
+	TREE_INDEX = 20;
 	TREE_LEVEL = 1;
-	PARENT = 4;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
@@ -1409,23 +1088,14 @@ DISPLAY_LINE
 	CHANNEL = "submatrixElements[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 20;
-	TREE_LEVEL = 1;
-	PARENT = 4;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "loaded";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
 	TREE_INDEX = 21;
-	TREE_LEVEL = 0;
+	TREE_LEVEL = 1;
+	PARENT = 5;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest";
+	CHANNEL = "address";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 22;
@@ -1435,7 +1105,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[15]";
+	CHANNEL = "address[15]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 23;
@@ -1445,7 +1115,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[14]";
+	CHANNEL = "address[14]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 24;
@@ -1455,7 +1125,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[13]";
+	CHANNEL = "address[13]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 25;
@@ -1465,7 +1135,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[12]";
+	CHANNEL = "address[12]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 26;
@@ -1475,7 +1145,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[11]";
+	CHANNEL = "address[11]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 27;
@@ -1485,7 +1155,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[10]";
+	CHANNEL = "address[10]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 28;
@@ -1495,7 +1165,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[9]";
+	CHANNEL = "address[9]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 29;
@@ -1505,7 +1175,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[8]";
+	CHANNEL = "address[8]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 30;
@@ -1515,7 +1185,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[7]";
+	CHANNEL = "address[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 31;
@@ -1525,7 +1195,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[6]";
+	CHANNEL = "address[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 32;
@@ -1535,7 +1205,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[5]";
+	CHANNEL = "address[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 33;
@@ -1545,7 +1215,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[4]";
+	CHANNEL = "address[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 34;
@@ -1555,7 +1225,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[3]";
+	CHANNEL = "address[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 35;
@@ -1565,7 +1235,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[2]";
+	CHANNEL = "address[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 36;
@@ -1575,7 +1245,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[1]";
+	CHANNEL = "address[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 37;
@@ -1585,7 +1255,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "addressTest[0]";
+	CHANNEL = "address[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 38;
@@ -1595,7 +1265,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "elementTest";
+	CHANNEL = "element";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 39;
@@ -1604,189 +1274,10 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "Counter:addressTraverser|count";
+	CHANNEL = "enable";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 40;
-	TREE_LEVEL = 0;
-	CHILDREN = 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[15]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 41;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[14]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 42;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[13]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 43;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[12]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 44;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[11]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 45;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[10]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 46;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[9]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 47;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[8]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 48;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[7]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 49;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[6]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 50;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[5]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 51;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[4]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 52;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 53;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 54;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 55;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "Counter:addressTraverser|count[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 56;
-	TREE_LEVEL = 1;
-	PARENT = 40;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "enableDelayTest";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 57;
-	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "enableTest";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 58;
 	TREE_LEVEL = 0;
 }
 

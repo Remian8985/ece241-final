@@ -1,0 +1,9 @@
+Depth = 57600;
+Width = 1;
+Address_radix=dec;
+Data_radix=bin;
+Content
+BEGIN
+	[0..57599] : 1;
+
+End;

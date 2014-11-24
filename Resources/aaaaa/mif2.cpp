@@ -1,3 +1,11 @@
+/*
+ *	output.txt is the file containing column
+ *	of new addresses. 
+ *	cin the 3bit wide pixels
+ *	
+ */
+
+
 
 #include <cstdlib> 
 #include <fstream>
