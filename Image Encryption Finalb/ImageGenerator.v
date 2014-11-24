@@ -11,7 +11,7 @@ module ImageGenerator
   writeEnable,
   encryptedImageDisplayed
  );
- 
+	
 	input resetN, clock, readyToBeProcessed;
 	input [15:0] encryptedSubmatrixElements;
 	input userEnable;
@@ -21,14 +21,16 @@ module ImageGenerator
 	output writeEnable; 
 	output reg encryptedImageDisplayed; //Indicates when the entire decrypted image has been outputted to the screen
 
-	wire loaded; 			//Indicates when grouper is loaded with 3 elements
+	wire loaded; 			// Indicates when grouper is loaded with 3 elements
 	wire delayedLoaded;		// pragmatic fix to bug that early signals writeEnable
-	wire enable = userEnable && readyToBeProcessed&& !encryptedImageDisplayed; //Module is enabled when user enables the circuit
+							// STILL DOES NOT WORK :(
+	wire enable = userEnable && readyToBeProcessed && !encryptedImageDisplayed
+					&& !processed ; //Module is enabled when user enables the circuit
 	
 	wire vcc, gnd, highImpedence; 
 	assign vcc = 1;	assign gnd = 0;
 
-	assign writeEnable = loaded & enable & delayedLoaded & ~processed;
+	assign writeEnable = loaded & enable; // & ~processed & delayedLoaded; 
 
 	always@(posedge clock)
 	begin
@@ -41,7 +43,8 @@ module ImageGenerator
 		end
 		
 		else
-			encryptedImageDisplayed <= (loaded && (address == 15'd19199)); //Finished uploading last pixel
+			encryptedImageDisplayed <= (address == 15'd19199); //Finished uploading last pixel
+//			encryptedImageDisplayed <= (loaded && (address == 15'd19199)); //Finished uploading last pixel
 	end
 	
 	threeDelay delayit(enable, clock, delayedLoaded); 
@@ -85,24 +88,26 @@ module ImageGenerator
 	dataLoadController.counterSize = 5, //17 counts per cycle- 1 for data load and 16 to output data
 	dataLoadController.countLimit = 16;
 
-	assign processed = dataLoadControllerCount == 16; //Entire cycle has been completed
+	assign processed = userEnable & (dataLoadControllerCount == 16); //Entire cycle has been completed
 
+	// This addressTraverser is bugged somehow.
+	// check the enable
 	Counter addressTraverser //Increments once every three clock ticks; equivalently, increments every time Grouper finishes inserting a pixel into the RAM
 	(
 		.resetN(resetN),
 		.clock(clock),
-		.enable(loaded),
-		.count(address)
+		.enable(loaded),		
+		.count(address)		
 	);
 
 endmodule 
 
 
-module threeDelay(resetn, clk,  vgaEnable);
+module threeDelay(resetn, clk,  delaythree);
 	input clk, resetn;	// active low reset
 //	input [2:0] raw;
 //	output reg [2:0] outs;
-	output reg vgaEnable;
+	output reg delaythree;
 	
 	reg [1:0]counter; 
 	
@@ -111,16 +116,16 @@ module threeDelay(resetn, clk,  vgaEnable);
 	begin 
 		if (!resetn) begin 
 			counter <= 2'b0;
-			vgaEnable <= 0;
+			delaythree <= 0;
 		end 
 		else begin 
 			counter <= counter + 2'b01;
-			vgaEnable <= 0;
+			delaythree <= 0;
 		end 
 		
 		if (counter[0] & counter[1]) begin 
 	//		outs <= raw;
-			vgaEnable <=1;
+			delaythree <=1;
 		end 
 	end 
 

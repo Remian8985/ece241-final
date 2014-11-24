@@ -32,4 +32,4 @@ begin
 		encrypted <= 1; //Indicates encryption is completed
 	end
 end
-endmodule
+endmodule 

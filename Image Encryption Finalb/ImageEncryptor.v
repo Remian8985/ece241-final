@@ -121,20 +121,25 @@ module ImageEncryptor
 	assign  LEDR[3] 		=	encryptedImageDisplayed; //
 ///////////////////////////////////////////////////////////////		
 
+
+	wire vcc, gnd, highImpedence;
+	wire changedHz;
+	assign vcc = 1;	assign gnd = 0;
+	assign VGAresetn = SW[16];
+
 	assign resetN = SW[16];
-	assign enable = SW[0];
+	assign enable = SW[0] & ~encryptedImageDisplayed;
 	assign clock = CLOCK_50;
 //	assign debugCLK = KEY[0];
 //	assign debugCLK = CLOCK_50;
-	assign debugCLK = oneHz;
+//	assign debugCLK = changedHz;
+	assign debugCLK = CLOCK_50 & ~SW[2]  | changedHz & SW[2];
+	// clock multiplexer
 	
 	
-	wire vcc, gnd, highImpedence;
-	wire oneHz;
-	assign vcc = 1;	assign gnd = 0;
-	assign VGAresetn = SW[16];
+
 	
-	frequency_divider getOneHz(CLOCK_50,resetn,oneHz);
+	frequency_divider divideHz(CLOCK_50,resetn,changedHz);
 	
 	
 	SubmatrixGenerator submatrixGenerator 
@@ -222,13 +227,17 @@ module ImageEncryptor
 
 endmodule 
 
+
+
+
 module frequency_divider(clk,rst,clk_out); // debug code: , counter);
 	input clk,rst;
 	// clk is the original clk
 	output reg clk_out;	// desired clk 
 
 	// factor = original frequency / (2 x desired frequency) - 1
-	parameter factor = 28'd24999999; 
+	parameter factor = 28'd6249999; 
+//	parameter factor = 28'd24999999; 	
 	// keep factor bitsize divisible by 4, just in case you want hex
 	// bitsize = n + n mod 4   ....n + remainder of n/4
 	
